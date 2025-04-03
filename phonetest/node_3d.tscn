@@ -1,15 +1,37 @@
-[gd_scene load_steps=34 format=3 uid="uid://bjjrxjphghfl"]
+[gd_scene load_steps=45 format=3 uid="uid://bjjrxjphghfl"]
 
 [ext_resource type="Script" uid="uid://cu6ar2nvumiy0" path="res://phon.gd" id="1_a202f"]
 [ext_resource type="Theme" uid="uid://c8np1vq7xmrsv" path="res://closeButton.tres" id="2_noarx"]
 [ext_resource type="Script" uid="uid://dib31tau786d5" path="res://input_handler.gd" id="3_a0tk4"]
 [ext_resource type="Script" uid="uid://bbxtkpib3bcg1" path="res://exit_menu_ui.gd" id="4_r3fl7"]
+[ext_resource type="Script" uid="uid://pre7g4pv1vpg" path="res://make_money.gd" id="4_wc5p8"]
 [ext_resource type="Script" uid="uid://xtgrbnrl4e3v" path="res://options.gd" id="5_i5arm"]
 [ext_resource type="Script" uid="uid://dn05k4vsus5cy" path="res://character_movement.gd" id="5_jka67"]
+[ext_resource type="Script" uid="uid://03p1gypngi4m" path="res://money_in_bankUpdateUi.gd" id="8_jsk3o"]
+[ext_resource type="Script" uid="uid://dninyedefr84k" path="res://cash_money.gd" id="9_4arys"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4xowi"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_a0tk4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_4arys"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tereu"]
+material = SubResource("StandardMaterial3D_6iypd")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdqbm"]
+bg_color = Color(1, 1, 1, 0.552941)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="Theme" id="Theme_imku0"]
+Label/colors/font_color = Color(0.325441, 0.325441, 0.325441, 1)
+Label/styles/normal = SubResource("StyleBoxFlat_cdqbm")
 
 [sub_resource type="QuadMesh" id="QuadMesh_r3fl7"]
 
@@ -95,6 +117,15 @@ viewport_path = NodePath("World/MeshInstance3D/SubViewport")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jka67"]
 
+[sub_resource type="QuadMesh" id="QuadMesh_wc5p8"]
+
+[sub_resource type="Gradient" id="Gradient_jsk3o"]
+offsets = PackedFloat32Array(0.0060241)
+colors = PackedColorArray(0.556863, 0.584314, 0.576471, 0.721569)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_4arys"]
+gradient = SubResource("Gradient_jsk3o")
+
 [node name="MainScene" type="Node3D"]
 
 [node name="InputHandler" type="Node" parent="."]
@@ -131,22 +162,62 @@ offset_right = 1152.0
 offset_bottom = 649.0
 
 [node name="BigPhone" type="Node2D" parent="PhoneUI"]
-visible = false
 position = Vector2(-485, -309)
 
 [node name="Background" type="MeshInstance2D" parent="PhoneUI/BigPhone"]
-position = Vector2(746.5, 409.5)
-scale = Vector2(1617, 781)
+position = Vector2(676, 409.5)
+scale = Vector2(1536, 781)
 mesh = SubResource("QuadMesh_a0tk4")
 
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PhoneUI/BigPhone"]
+modulate = Color(0.305882, 0.305882, 0.305882, 0.780392)
+position = Vector2(676, 42.375)
+scale = Vector2(1536, 55.25)
+mesh = SubResource("QuadMesh_4arys")
+
 [node name="CloseButton" type="Button" parent="PhoneUI/BigPhone"]
-offset_left = 1505.0
+offset_left = 1396.0
 offset_top = 19.0
-offset_right = 1555.0
-offset_bottom = 69.0
+offset_right = 1444.0
+offset_bottom = 68.0
+size_flags_horizontal = 4
 theme = ExtResource("2_noarx")
 theme_override_font_sizes/font_size = 35
 text = "X"
+
+[node name="MakingMoneyPage" type="Node2D" parent="PhoneUI/BigPhone"]
+script = ExtResource("4_wc5p8")
+
+[node name="Button" type="Button" parent="PhoneUI/BigPhone/MakingMoneyPage"]
+offset_left = 612.0
+offset_top = 582.0
+offset_right = 740.0
+offset_bottom = 613.0
+text = "Get Money!"
+
+[node name="ProgressBar" type="ProgressBar" parent="PhoneUI/BigPhone/MakingMoneyPage"]
+offset_left = 36.0
+offset_top = 486.0
+offset_right = 1316.0
+offset_bottom = 513.0
+size_flags_vertical = 1
+
+[node name="MeasuringStick" type="MeshInstance2D" parent="PhoneUI/BigPhone/MakingMoneyPage"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-124, 470)
+scale = Vector2(320, 928)
+mesh = SubResource("QuadMesh_tereu")
+
+[node name="WebsiteURL" type="Label" parent="PhoneUI/BigPhone"]
+offset_left = 36.0
+offset_top = 32.0
+offset_right = 1316.0
+offset_bottom = 57.0
+theme = SubResource("Theme_imku0")
+text = "https://www.LiveOffTheGovernment.com/{player_name}/Single-Dad-Life"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="ExitMenuUI" type="Node2D" parent="."]
 visible = false
@@ -282,7 +353,59 @@ shape = SubResource("CapsuleShape3D_jka67")
 [node name="Camera3D" type="Camera3D" parent="Player/CharacterBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262231, 0.575943, -0.105634)
 
+[node name="ScreenUI" type="Node2D" parent="."]
+
+[node name="TopLeftMenu" type="Node2D" parent="ScreenUI"]
+
+[node name="BackGround" type="MeshInstance2D" parent="ScreenUI/TopLeftMenu"]
+position = Vector2(126.938, 58.9375)
+scale = Vector2(258.125, 122.125)
+mesh = SubResource("QuadMesh_wc5p8")
+texture = SubResource("GradientTexture1D_4arys")
+
+[node name="Health" type="Label" parent="ScreenUI/TopLeftMenu"]
+offset_right = 256.0
+offset_bottom = 23.0
+text = "Health: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Hunger" type="Label" parent="ScreenUI/TopLeftMenu"]
+offset_top = 24.0
+offset_right = 256.0
+offset_bottom = 47.0
+text = "Hunger: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Happiness" type="Label" parent="ScreenUI/TopLeftMenu"]
+offset_top = 48.0
+offset_right = 256.0
+offset_bottom = 71.0
+text = "Happiness: 100"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MoneyInBank" type="Label" parent="ScreenUI/TopLeftMenu"]
+offset_top = 72.0
+offset_right = 256.0
+offset_bottom = 95.0
+text = "Bank: $0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("8_jsk3o")
+
+[node name="CashMoney" type="Label" parent="ScreenUI/TopLeftMenu"]
+offset_top = 96.0
+offset_right = 256.0
+offset_bottom = 119.0
+text = "In Pocket: $0"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("9_4arys")
+
 [connection signal="pressed" from="PhoneUI/SmallPhone/Button" to="PhoneUI" method="_on_button_pressed"]
 [connection signal="pressed" from="PhoneUI/BigPhone/CloseButton" to="PhoneUI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="PhoneUI/BigPhone/MakingMoneyPage/Button" to="PhoneUI/BigPhone/MakingMoneyPage" method="_on_button_pressed"]
 [connection signal="pressed" from="ExitMenuUI/TopBar/Button" to="ExitMenuUI" method="_on_button_pressed"]
 [connection signal="pressed" from="ExitMenuUI/Main/Options/GridContainer/Leave/LeaveButton" to="ExitMenuUI/Main/Options" method="_on_leave_button_pressed"]

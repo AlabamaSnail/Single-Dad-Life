@@ -2,7 +2,7 @@ extends Node
 
 @onready var PhoneUI = get_node("/root/MainScene/PhoneUI")
 @onready var ExitMenuUi = get_node("/root/MainScene/ExitMenuUI")
-
+@onready var OnScreenUI = get_node("/root/MainScene/ScreenUI")
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
@@ -17,8 +17,10 @@ func _input(event: InputEvent) -> void:
 		else:
 			if ExitMenuUi.visible:
 				ExitMenuUi.visible = false
+				OnScreenUI.visible = true
 				Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			else:
 				Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 				ExitMenuUi.visible = true
+				OnScreenUI.visible = false
 	

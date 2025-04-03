@@ -15,6 +15,11 @@ run/main_scene="res://node_3d.tscn"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+MoneyFromGov="*res://money_from_gov.gd"
+PlayerValues="*res://player_values.gd"
+
 [display]
 
 window/size/viewport_width=1920
