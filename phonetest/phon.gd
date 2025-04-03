@@ -1,0 +1,20 @@
+extends Node2D
+
+@onready var smallPhoneUI = $SmallPhone 
+@onready var BigPhoneUI = $BigPhone
+
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_pressed("open_phone"):
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		_change_visible()
+func _on_button_pressed() -> void:
+	_change_visible()
+	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+func _on_close_button_pressed() -> void:
+	_change_visible()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	
+	
+func _change_visible() -> void:
+	smallPhoneUI.visible = !smallPhoneUI.visible  
+	BigPhoneUI.visible = !BigPhoneUI.visible  

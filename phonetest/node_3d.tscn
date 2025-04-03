@@ -1,0 +1,288 @@
+[gd_scene load_steps=34 format=3 uid="uid://bjjrxjphghfl"]
+
+[ext_resource type="Script" uid="uid://cu6ar2nvumiy0" path="res://phon.gd" id="1_a202f"]
+[ext_resource type="Theme" uid="uid://c8np1vq7xmrsv" path="res://closeButton.tres" id="2_noarx"]
+[ext_resource type="Script" uid="uid://dib31tau786d5" path="res://input_handler.gd" id="3_a0tk4"]
+[ext_resource type="Script" uid="uid://bbxtkpib3bcg1" path="res://exit_menu_ui.gd" id="4_r3fl7"]
+[ext_resource type="Script" uid="uid://xtgrbnrl4e3v" path="res://options.gd" id="5_i5arm"]
+[ext_resource type="Script" uid="uid://dn05k4vsus5cy" path="res://character_movement.gd" id="5_jka67"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_4xowi"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_a0tk4"]
+
+[sub_resource type="QuadMesh" id="QuadMesh_r3fl7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jka67"]
+font_size = 90
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_i5arm"]
+
+[sub_resource type="Gradient" id="Gradient_wc5p8"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.493545, 0.493546, 0.493546, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_jsk3o"]
+gradient = SubResource("Gradient_wc5p8")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wc5p8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jsk3o"]
+bg_color = Color(0.621524, 0.621524, 0.621524, 0.87451)
+corner_radius_top_left = 24
+corner_radius_top_right = 24
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="Theme" id="Theme_4arys"]
+Button/colors/font_color = Color(0.000693898, 0.000693898, 0.000693898, 1)
+Button/font_sizes/font_size = 42
+Button/styles/hover = SubResource("StyleBoxFlat_wc5p8")
+Button/styles/normal = SubResource("StyleBoxFlat_jsk3o")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+albedo_color = Color(0, 0.694118, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_i5arm"]
+lightmap_size_hint = Vector2i(14, 21)
+material = SubResource("StandardMaterial3D_jka67")
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_jka67"]
+size = Vector3(128.335, 0.10144, 128.931)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_jka67"]
+sky_curve = 0.0776449
+ground_curve = 0.0414106
+
+[sub_resource type="Sky" id="Sky_i5arm"]
+sky_material = SubResource("ProceduralSkyMaterial_jka67")
+
+[sub_resource type="Environment" id="Environment_wc5p8"]
+background_mode = 2
+sky = SubResource("Sky_i5arm")
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+reflected_light_source = 2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jsk3o"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_4arys"]
+material = SubResource("StandardMaterial3D_jsk3o")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_6iypd"]
+points = PackedVector3Array(0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tereu"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_cdqbm"]
+material = SubResource("StandardMaterial3D_tereu")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_imku0"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_wlxy5"]
+material = SubResource("StandardMaterial3D_imku0")
+
+[sub_resource type="BoxMesh" id="BoxMesh_jka67"]
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i5arm"]
+viewport_path = NodePath("World/MeshInstance3D/SubViewport")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_jsk3o"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_jka67"]
+
+[node name="MainScene" type="Node3D"]
+
+[node name="InputHandler" type="Node" parent="."]
+script = ExtResource("3_a0tk4")
+
+[node name="PhoneUI" type="Node2D" parent="."]
+position = Vector2(769, 431)
+script = ExtResource("1_a202f")
+
+[node name="SmallPhone" type="Node2D" parent="PhoneUI"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="PhoneUI/SmallPhone"]
+position = Vector2(1040.13, 675)
+scale = Vector2(222.25, 72)
+mesh = SubResource("CapsuleMesh_4xowi")
+
+[node name="Label" type="Label" parent="PhoneUI/SmallPhone"]
+modulate = Color(0, 0, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
+offset_left = 930.0
+offset_top = 610.0
+offset_right = 1152.0
+offset_bottom = 648.0
+text = "Press Up Arrow to Open"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="PhoneUI/SmallPhone"]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 929.0
+offset_top = 603.0
+offset_right = 1152.0
+offset_bottom = 649.0
+
+[node name="BigPhone" type="Node2D" parent="PhoneUI"]
+visible = false
+position = Vector2(-485, -309)
+
+[node name="Background" type="MeshInstance2D" parent="PhoneUI/BigPhone"]
+position = Vector2(746.5, 409.5)
+scale = Vector2(1617, 781)
+mesh = SubResource("QuadMesh_a0tk4")
+
+[node name="CloseButton" type="Button" parent="PhoneUI/BigPhone"]
+offset_left = 1505.0
+offset_top = 19.0
+offset_right = 1555.0
+offset_bottom = 69.0
+theme = ExtResource("2_noarx")
+theme_override_font_sizes/font_size = 35
+text = "X"
+
+[node name="ExitMenuUI" type="Node2D" parent="."]
+visible = false
+script = ExtResource("4_r3fl7")
+
+[node name="TopBar" type="Node2D" parent="ExitMenuUI"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ExitMenuUI/TopBar"]
+position = Vector2(960, 63.5)
+scale = Vector2(1920, 127)
+mesh = SubResource("QuadMesh_r3fl7")
+
+[node name="Label" type="Label" parent="ExitMenuUI/TopBar"]
+offset_right = 1918.0
+offset_bottom = 127.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Settings"
+label_settings = SubResource("LabelSettings_jka67")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="ExitMenuUI/TopBar"]
+offset_left = 1870.0
+offset_right = 1920.0
+offset_bottom = 50.0
+theme = ExtResource("2_noarx")
+theme_override_font_sizes/font_size = 30
+text = "X"
+
+[node name="Main" type="Node2D" parent="ExitMenuUI"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="ExitMenuUI/Main"]
+position = Vector2(959.875, 603.25)
+scale = Vector2(1920.25, 952.5)
+mesh = SubResource("QuadMesh_i5arm")
+texture = SubResource("GradientTexture2D_jsk3o")
+
+[node name="Options" type="Node2D" parent="ExitMenuUI/Main"]
+script = ExtResource("5_i5arm")
+
+[node name="GridContainer" type="GridContainer" parent="ExitMenuUI/Main/Options"]
+offset_top = 127.0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="Leave" type="Node2D" parent="ExitMenuUI/Main/Options/GridContainer"]
+
+[node name="LeaveButton" type="Button" parent="ExitMenuUI/Main/Options/GridContainer/Leave"]
+offset_left = 128.0
+offset_top = 65.0
+offset_right = 1792.0
+offset_bottom = 130.0
+theme = SubResource("Theme_4arys")
+text = "Quit Game
+"
+
+[node name="World" type="Node3D" parent="."]
+
+[node name="Ground" type="RigidBody3D" parent="World"]
+axis_lock_linear_x = true
+axis_lock_linear_y = true
+axis_lock_linear_z = true
+axis_lock_angular_x = true
+axis_lock_angular_y = true
+axis_lock_angular_z = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Ground"]
+transform = Transform3D(128.332, 0, 0, 0, 0.0992278, 0, 0, 0, 128.971, -0.000213623, -0.0209708, 0.0503998)
+mesh = SubResource("BoxMesh_i5arm")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Ground"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00402069, -0.0160522, 0.0252991)
+shape = SubResource("BoxShape3D_jka67")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="World"]
+environment = SubResource("Environment_wc5p8")
+
+[node name="Box" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.17559, 0.539913, -5.05385)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Box"]
+mesh = SubResource("BoxMesh_4arys")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Box"]
+shape = SubResource("ConvexPolygonShape3D_6iypd")
+
+[node name="Box2" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.14566, 0.539913, -2.70621)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Box2"]
+mesh = SubResource("BoxMesh_cdqbm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Box2"]
+shape = SubResource("ConvexPolygonShape3D_6iypd")
+
+[node name="Box3" type="Node3D" parent="World"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.80371, 0.640833, -3.9832)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World/Box3"]
+mesh = SubResource("BoxMesh_wlxy5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="World/Box3"]
+shape = SubResource("ConvexPolygonShape3D_6iypd")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="World"]
+transform = Transform3D(3.15091, 0, 0, 0, 3.07728, 0, 0, 0, 0.178454, 0, 1.59644, -6.32196)
+mesh = SubResource("BoxMesh_jka67")
+
+[node name="Sprite3D" type="Sprite3D" parent="World/MeshInstance3D"]
+transform = Transform3D(0.197519, 0, 8.74228e-08, 0, -0.192296, 0, -1.72677e-08, 0, 1, 0, 0, 0.545845)
+flip_h = true
+flip_v = true
+texture = SubResource("ViewportTexture_i5arm")
+
+[node name="SubViewport" type="SubViewport" parent="World/MeshInstance3D"]
+
+[node name="Camera3D" type="Camera3D" parent="World/MeshInstance3D/SubViewport"]
+transform = Transform3D(-1, 0, -4.95124e-09, 0, 1, 0, 4.95124e-09, 0, -1, 0, 1.59644, -6.23072)
+
+[node name="Player" type="Node3D" parent="."]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47683, 0)
+script = ExtResource("5_jka67")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CharacterBody3D"]
+mesh = SubResource("CapsuleMesh_jsk3o")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/CharacterBody3D"]
+shape = SubResource("CapsuleShape3D_jka67")
+
+[node name="Camera3D" type="Camera3D" parent="Player/CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0262231, 0.575943, -0.105634)
+
+[connection signal="pressed" from="PhoneUI/SmallPhone/Button" to="PhoneUI" method="_on_button_pressed"]
+[connection signal="pressed" from="PhoneUI/BigPhone/CloseButton" to="PhoneUI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="ExitMenuUI/TopBar/Button" to="ExitMenuUI" method="_on_button_pressed"]
+[connection signal="pressed" from="ExitMenuUI/Main/Options/GridContainer/Leave/LeaveButton" to="ExitMenuUI/Main/Options" method="_on_leave_button_pressed"]
