@@ -12,6 +12,10 @@ func _on_button_pressed() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 func _on_close_button_pressed() -> void:
 	_change_visible()
+	get_node("/root/MainScene/PhoneUI/BigPhone/TopBar/WebsiteURL").text = "https://www.Single-Dad-Life.com/" + str(PlayerValues.PlayerName)
+	get_node("/root/MainScene/PhoneUI/BigPhone/Pages/MakingMoneyPage").visible = false
+	get_node("/root/MainScene/PhoneUI/BigPhone/Pages/BankingPage").visible = false
+	get_node("/root/MainScene/PhoneUI/BigPhone/Pages/HomePage").visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	
 	

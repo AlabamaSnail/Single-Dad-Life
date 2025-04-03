@@ -1,12 +1,14 @@
-[gd_scene load_steps=45 format=3 uid="uid://bjjrxjphghfl"]
+[gd_scene load_steps=51 format=3 uid="uid://bjjrxjphghfl"]
 
 [ext_resource type="Script" uid="uid://cu6ar2nvumiy0" path="res://phon.gd" id="1_a202f"]
 [ext_resource type="Theme" uid="uid://c8np1vq7xmrsv" path="res://closeButton.tres" id="2_noarx"]
 [ext_resource type="Script" uid="uid://dib31tau786d5" path="res://input_handler.gd" id="3_a0tk4"]
 [ext_resource type="Script" uid="uid://bbxtkpib3bcg1" path="res://exit_menu_ui.gd" id="4_r3fl7"]
 [ext_resource type="Script" uid="uid://pre7g4pv1vpg" path="res://make_money.gd" id="4_wc5p8"]
+[ext_resource type="Script" uid="uid://d0sco7k6ljmxq" path="res://website_url.gd" id="5_6iypd"]
 [ext_resource type="Script" uid="uid://xtgrbnrl4e3v" path="res://options.gd" id="5_i5arm"]
 [ext_resource type="Script" uid="uid://dn05k4vsus5cy" path="res://character_movement.gd" id="5_jka67"]
+[ext_resource type="Script" uid="uid://cjuhhmjss3upe" path="res://tab_bar.gd" id="5_tereu"]
 [ext_resource type="Script" uid="uid://03p1gypngi4m" path="res://money_in_bankUpdateUi.gd" id="8_jsk3o"]
 [ext_resource type="Script" uid="uid://dninyedefr84k" path="res://cash_money.gd" id="9_4arys"]
 
@@ -15,12 +17,6 @@
 [sub_resource type="QuadMesh" id="QuadMesh_a0tk4"]
 
 [sub_resource type="QuadMesh" id="QuadMesh_4arys"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="QuadMesh" id="QuadMesh_tereu"]
-material = SubResource("StandardMaterial3D_6iypd")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdqbm"]
 bg_color = Color(1, 1, 1, 0.552941)
@@ -32,6 +28,33 @@ corner_radius_bottom_left = 8
 [sub_resource type="Theme" id="Theme_imku0"]
 Label/colors/font_color = Color(0.325441, 0.325441, 0.325441, 1)
 Label/styles/normal = SubResource("StyleBoxFlat_cdqbm")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6iypd"]
+bg_color = Color(0.728822, 0.728822, 0.728822, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_tereu"]
+bg_color = Color(0.418064, 0.626248, 0.781999, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imku0"]
+bg_color = Color(0.306923, 0.306923, 0.306923, 1)
+corner_radius_bottom_right = 24
+corner_radius_bottom_left = 24
+
+[sub_resource type="Theme" id="Theme_wlxy5"]
+Button/styles/focus = SubResource("StyleBoxFlat_6iypd")
+Button/styles/hover = SubResource("StyleBoxFlat_tereu")
+Button/styles/normal = SubResource("StyleBoxFlat_imku0")
+Button/styles/pressed = SubResource("StyleBoxFlat_imku0")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iypd"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_tereu"]
+material = SubResource("StandardMaterial3D_6iypd")
 
 [sub_resource type="QuadMesh" id="QuadMesh_r3fl7"]
 
@@ -169,47 +192,25 @@ position = Vector2(676, 409.5)
 scale = Vector2(1536, 781)
 mesh = SubResource("QuadMesh_a0tk4")
 
-[node name="MeshInstance2D" type="MeshInstance2D" parent="PhoneUI/BigPhone"]
+[node name="TopBar" type="Node2D" parent="PhoneUI/BigPhone"]
+
+[node name="TopBarBg" type="MeshInstance2D" parent="PhoneUI/BigPhone/TopBar"]
 modulate = Color(0.305882, 0.305882, 0.305882, 0.780392)
-position = Vector2(676, 42.375)
-scale = Vector2(1536, 55.25)
+position = Vector2(676, 44.5)
+scale = Vector2(1536, 51)
 mesh = SubResource("QuadMesh_4arys")
 
-[node name="CloseButton" type="Button" parent="PhoneUI/BigPhone"]
-offset_left = 1396.0
+[node name="CloseButton" type="Button" parent="PhoneUI/BigPhone/TopBar"]
+offset_left = 1395.0
 offset_top = 19.0
 offset_right = 1444.0
-offset_bottom = 68.0
+offset_bottom = 70.0
 size_flags_horizontal = 4
 theme = ExtResource("2_noarx")
 theme_override_font_sizes/font_size = 35
 text = "X"
 
-[node name="MakingMoneyPage" type="Node2D" parent="PhoneUI/BigPhone"]
-script = ExtResource("4_wc5p8")
-
-[node name="Button" type="Button" parent="PhoneUI/BigPhone/MakingMoneyPage"]
-offset_left = 612.0
-offset_top = 582.0
-offset_right = 740.0
-offset_bottom = 613.0
-text = "Get Money!"
-
-[node name="ProgressBar" type="ProgressBar" parent="PhoneUI/BigPhone/MakingMoneyPage"]
-offset_left = 36.0
-offset_top = 486.0
-offset_right = 1316.0
-offset_bottom = 513.0
-size_flags_vertical = 1
-
-[node name="MeasuringStick" type="MeshInstance2D" parent="PhoneUI/BigPhone/MakingMoneyPage"]
-visible = false
-modulate = Color(0, 0, 0, 1)
-position = Vector2(-124, 470)
-scale = Vector2(320, 928)
-mesh = SubResource("QuadMesh_tereu")
-
-[node name="WebsiteURL" type="Label" parent="PhoneUI/BigPhone"]
+[node name="WebsiteURL" type="Label" parent="PhoneUI/BigPhone/TopBar"]
 offset_left = 36.0
 offset_top = 32.0
 offset_right = 1316.0
@@ -218,6 +219,107 @@ theme = SubResource("Theme_imku0")
 text = "https://www.LiveOffTheGovernment.com/{player_name}/Single-Dad-Life"
 horizontal_alignment = 1
 vertical_alignment = 1
+script = ExtResource("5_6iypd")
+
+[node name="Pages" type="Node2D" parent="PhoneUI/BigPhone"]
+script = ExtResource("5_tereu")
+
+[node name="TabBar" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
+
+[node name="MakingMoneyTab" type="Node2D" parent="PhoneUI/BigPhone/Pages/TabBar"]
+
+[node name="MakingMoneyButton" type="Button" parent="PhoneUI/BigPhone/Pages/TabBar/MakingMoneyTab"]
+offset_left = -92.0
+offset_top = 70.0
+offset_right = 676.0
+offset_bottom = 91.0
+theme = SubResource("Theme_wlxy5")
+text = "Make Money From The Government"
+
+[node name="Banking" type="Node2D" parent="PhoneUI/BigPhone/Pages/TabBar"]
+position = Vector2(768, 0)
+
+[node name="BankingButton" type="Button" parent="PhoneUI/BigPhone/Pages/TabBar/Banking"]
+offset_left = -92.0
+offset_top = 70.0
+offset_right = 676.0
+offset_bottom = 91.0
+theme = SubResource("Theme_wlxy5")
+text = "Online Banking"
+
+[node name="MakingMoneyPage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
+visible = false
+script = ExtResource("4_wc5p8")
+
+[node name="Button" type="Button" parent="PhoneUI/BigPhone/Pages/MakingMoneyPage"]
+offset_left = 612.0
+offset_top = 582.0
+offset_right = 740.0
+offset_bottom = 613.0
+text = "Get Money!"
+
+[node name="ProgressBar" type="ProgressBar" parent="PhoneUI/BigPhone/Pages/MakingMoneyPage"]
+offset_left = 36.0
+offset_top = 486.0
+offset_right = 1316.0
+offset_bottom = 513.0
+size_flags_vertical = 1
+
+[node name="MeasuringStick" type="MeshInstance2D" parent="PhoneUI/BigPhone/Pages/MakingMoneyPage"]
+visible = false
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-124, 470)
+scale = Vector2(320, 928)
+mesh = SubResource("QuadMesh_tereu")
+
+[node name="BankingPage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
+
+[node name="Title" type="Label" parent="PhoneUI/BigPhone/Pages/BankingPage"]
+offset_left = -96.0
+offset_top = 92.0
+offset_right = 1445.0
+offset_bottom = 180.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Welcome To Single's Banking"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Title2" type="Label" parent="PhoneUI/BigPhone/Pages/BankingPage"]
+offset_left = -96.0
+offset_top = 179.0
+offset_right = 1445.0
+offset_bottom = 219.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 24
+text = "You can use the boxes below to Withdraw, or Deposit Money."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LineEdit" type="LineEdit" parent="PhoneUI/BigPhone/Pages/BankingPage"]
+offset_left = 323.0
+offset_top = 496.0
+offset_right = 507.0
+offset_bottom = 527.0
+text = "$"
+select_all_on_focus = true
+
+[node name="HomePage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
+visible = false
+
+[node name="Label" type="Label" parent="PhoneUI/BigPhone/Pages/HomePage"]
+offset_left = -96.0
+offset_top = 92.0
+offset_right = 1445.0
+offset_bottom = 802.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 64
+text = "Welcome to the Internet.
+Select a tab above to be directed to the website of your choice.
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
 [node name="ExitMenuUI" type="Node2D" parent="."]
 visible = false
@@ -405,7 +507,9 @@ vertical_alignment = 1
 script = ExtResource("9_4arys")
 
 [connection signal="pressed" from="PhoneUI/SmallPhone/Button" to="PhoneUI" method="_on_button_pressed"]
-[connection signal="pressed" from="PhoneUI/BigPhone/CloseButton" to="PhoneUI" method="_on_close_button_pressed"]
-[connection signal="pressed" from="PhoneUI/BigPhone/MakingMoneyPage/Button" to="PhoneUI/BigPhone/MakingMoneyPage" method="_on_button_pressed"]
+[connection signal="pressed" from="PhoneUI/BigPhone/TopBar/CloseButton" to="PhoneUI" method="_on_close_button_pressed"]
+[connection signal="pressed" from="PhoneUI/BigPhone/Pages/TabBar/MakingMoneyTab/MakingMoneyButton" to="PhoneUI/BigPhone/Pages" method="_on_making_money_button_pressed"]
+[connection signal="pressed" from="PhoneUI/BigPhone/Pages/TabBar/Banking/BankingButton" to="PhoneUI/BigPhone/Pages" method="_on_banking_button_pressed"]
+[connection signal="pressed" from="PhoneUI/BigPhone/Pages/MakingMoneyPage/Button" to="PhoneUI/BigPhone/Pages/MakingMoneyPage" method="_on_button_pressed"]
 [connection signal="pressed" from="ExitMenuUI/TopBar/Button" to="ExitMenuUI" method="_on_button_pressed"]
 [connection signal="pressed" from="ExitMenuUI/Main/Options/GridContainer/Leave/LeaveButton" to="ExitMenuUI/Main/Options" method="_on_leave_button_pressed"]

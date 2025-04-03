@@ -1,5 +1,7 @@
 extends Node
 
+
+var PlayerName = "TestPlayer"
 var MoneyInBank = 0
 var PlayerCash = 0
 
