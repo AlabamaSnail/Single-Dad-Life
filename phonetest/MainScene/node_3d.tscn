@@ -186,6 +186,7 @@ offset_right = 1152.0
 offset_bottom = 649.0
 
 [node name="BigPhone" type="Node2D" parent="PhoneUI"]
+visible = false
 position = Vector2(-485, -309)
 
 [node name="Background" type="MeshInstance2D" parent="PhoneUI/BigPhone"]
@@ -274,6 +275,7 @@ scale = Vector2(320, 928)
 mesh = SubResource("QuadMesh_tereu")
 
 [node name="BankingPage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
+visible = false
 
 [node name="Title" type="Label" parent="PhoneUI/BigPhone/Pages/BankingPage"]
 offset_left = -96.0
@@ -306,7 +308,6 @@ select_all_on_focus = true
 script = ExtResource("7_gkokw")
 
 [node name="HomePage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
-visible = false
 
 [node name="Label" type="Label" parent="PhoneUI/BigPhone/Pages/HomePage"]
 offset_left = -96.0
