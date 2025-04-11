@@ -1,16 +1,17 @@
-[gd_scene load_steps=51 format=3 uid="uid://bjjrxjphghfl"]
+[gd_scene load_steps=52 format=3 uid="uid://bjjrxjphghfl"]
 
-[ext_resource type="Script" uid="uid://cu6ar2nvumiy0" path="res://phon.gd" id="1_a202f"]
-[ext_resource type="Theme" uid="uid://c8np1vq7xmrsv" path="res://closeButton.tres" id="2_noarx"]
-[ext_resource type="Script" uid="uid://dib31tau786d5" path="res://input_handler.gd" id="3_a0tk4"]
-[ext_resource type="Script" uid="uid://bbxtkpib3bcg1" path="res://exit_menu_ui.gd" id="4_r3fl7"]
-[ext_resource type="Script" uid="uid://pre7g4pv1vpg" path="res://make_money.gd" id="4_wc5p8"]
-[ext_resource type="Script" uid="uid://d0sco7k6ljmxq" path="res://website_url.gd" id="5_6iypd"]
-[ext_resource type="Script" uid="uid://xtgrbnrl4e3v" path="res://options.gd" id="5_i5arm"]
-[ext_resource type="Script" uid="uid://dn05k4vsus5cy" path="res://character_movement.gd" id="5_jka67"]
-[ext_resource type="Script" uid="uid://cjuhhmjss3upe" path="res://tab_bar.gd" id="5_tereu"]
-[ext_resource type="Script" uid="uid://03p1gypngi4m" path="res://money_in_bankUpdateUi.gd" id="8_jsk3o"]
-[ext_resource type="Script" uid="uid://dninyedefr84k" path="res://cash_money.gd" id="9_4arys"]
+[ext_resource type="Script" uid="uid://dib31tau786d5" path="res://MainScene/Scripts/input_handler.gd" id="1_i4aej"]
+[ext_resource type="Script" uid="uid://cu6ar2nvumiy0" path="res://MainScene/Scripts/phon.gd" id="2_gkokw"]
+[ext_resource type="Theme" uid="uid://c8np1vq7xmrsv" path="res://MainScene/Themes/closeButton.tres" id="3_0482s"]
+[ext_resource type="Script" uid="uid://d0sco7k6ljmxq" path="res://MainScene/Scripts/website_url.gd" id="4_r1dm6"]
+[ext_resource type="Script" uid="uid://cjuhhmjss3upe" path="res://MainScene/Scripts/tab_bar.gd" id="5_kwfer"]
+[ext_resource type="Script" uid="uid://pre7g4pv1vpg" path="res://MainScene/Scripts/make_money.gd" id="6_8vi5w"]
+[ext_resource type="Script" uid="uid://bbxtkpib3bcg1" path="res://MainScene/Scripts/exit_menu_ui.gd" id="7_7hsqo"]
+[ext_resource type="Script" uid="uid://rdy44blulied" path="res://MainScene/DepositLineEdit.gd" id="7_gkokw"]
+[ext_resource type="Script" uid="uid://xtgrbnrl4e3v" path="res://MainScene/Scripts/options.gd" id="8_kubta"]
+[ext_resource type="Script" uid="uid://dn05k4vsus5cy" path="res://MainScene/Scripts/character_movement.gd" id="9_1mfdw"]
+[ext_resource type="Script" uid="uid://03p1gypngi4m" path="res://MainScene/Scripts/money_in_bankUpdateUi.gd" id="10_dv17o"]
+[ext_resource type="Script" uid="uid://dninyedefr84k" path="res://MainScene/Scripts/cash_money.gd" id="11_vtsl2"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_4xowi"]
 
@@ -152,11 +153,11 @@ gradient = SubResource("Gradient_jsk3o")
 [node name="MainScene" type="Node3D"]
 
 [node name="InputHandler" type="Node" parent="."]
-script = ExtResource("3_a0tk4")
+script = ExtResource("1_i4aej")
 
 [node name="PhoneUI" type="Node2D" parent="."]
 position = Vector2(769, 431)
-script = ExtResource("1_a202f")
+script = ExtResource("2_gkokw")
 
 [node name="SmallPhone" type="Node2D" parent="PhoneUI"]
 
@@ -206,7 +207,7 @@ offset_top = 19.0
 offset_right = 1444.0
 offset_bottom = 70.0
 size_flags_horizontal = 4
-theme = ExtResource("2_noarx")
+theme = ExtResource("3_0482s")
 theme_override_font_sizes/font_size = 35
 text = "X"
 
@@ -219,10 +220,10 @@ theme = SubResource("Theme_imku0")
 text = "https://www.LiveOffTheGovernment.com/{player_name}/Single-Dad-Life"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("5_6iypd")
+script = ExtResource("4_r1dm6")
 
 [node name="Pages" type="Node2D" parent="PhoneUI/BigPhone"]
-script = ExtResource("5_tereu")
+script = ExtResource("5_kwfer")
 
 [node name="TabBar" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
 
@@ -249,7 +250,7 @@ text = "Online Banking"
 
 [node name="MakingMoneyPage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
 visible = false
-script = ExtResource("4_wc5p8")
+script = ExtResource("6_8vi5w")
 
 [node name="Button" type="Button" parent="PhoneUI/BigPhone/Pages/MakingMoneyPage"]
 offset_left = 612.0
@@ -301,8 +302,8 @@ offset_left = 323.0
 offset_top = 496.0
 offset_right = 507.0
 offset_bottom = 527.0
-text = "$"
 select_all_on_focus = true
+script = ExtResource("7_gkokw")
 
 [node name="HomePage" type="Node2D" parent="PhoneUI/BigPhone/Pages"]
 visible = false
@@ -323,7 +324,7 @@ autowrap_mode = 3
 
 [node name="ExitMenuUI" type="Node2D" parent="."]
 visible = false
-script = ExtResource("4_r3fl7")
+script = ExtResource("7_7hsqo")
 
 [node name="TopBar" type="Node2D" parent="ExitMenuUI"]
 
@@ -345,7 +346,7 @@ vertical_alignment = 1
 offset_left = 1870.0
 offset_right = 1920.0
 offset_bottom = 50.0
-theme = ExtResource("2_noarx")
+theme = ExtResource("3_0482s")
 theme_override_font_sizes/font_size = 30
 text = "X"
 
@@ -358,7 +359,7 @@ mesh = SubResource("QuadMesh_i5arm")
 texture = SubResource("GradientTexture2D_jsk3o")
 
 [node name="Options" type="Node2D" parent="ExitMenuUI/Main"]
-script = ExtResource("5_i5arm")
+script = ExtResource("8_kubta")
 
 [node name="GridContainer" type="GridContainer" parent="ExitMenuUI/Main/Options"]
 offset_top = 127.0
@@ -444,7 +445,7 @@ transform = Transform3D(-1, 0, -4.95124e-09, 0, 1, 0, 4.95124e-09, 0, -1, 0, 1.5
 
 [node name="CharacterBody3D" type="CharacterBody3D" parent="Player"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.47683, 0)
-script = ExtResource("5_jka67")
+script = ExtResource("9_1mfdw")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Player/CharacterBody3D"]
 mesh = SubResource("CapsuleMesh_jsk3o")
@@ -495,7 +496,7 @@ offset_bottom = 95.0
 text = "Bank: $0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("8_jsk3o")
+script = ExtResource("10_dv17o")
 
 [node name="CashMoney" type="Label" parent="ScreenUI/TopLeftMenu"]
 offset_top = 96.0
@@ -504,7 +505,7 @@ offset_bottom = 119.0
 text = "In Pocket: $0"
 horizontal_alignment = 1
 vertical_alignment = 1
-script = ExtResource("9_4arys")
+script = ExtResource("11_vtsl2")
 
 [connection signal="pressed" from="PhoneUI/SmallPhone/Button" to="PhoneUI" method="_on_button_pressed"]
 [connection signal="pressed" from="PhoneUI/BigPhone/TopBar/CloseButton" to="PhoneUI" method="_on_close_button_pressed"]

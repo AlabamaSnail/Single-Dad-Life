@@ -5,7 +5,10 @@ extends Node2D
 
 func _input(event: InputEvent) -> void:
 	if Input.is_action_just_pressed("open_phone"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if Input.mouse_mode == Input.MOUSE_MODE_VISIBLE:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		_change_visible()
 func _on_button_pressed() -> void:
 	_change_visible()

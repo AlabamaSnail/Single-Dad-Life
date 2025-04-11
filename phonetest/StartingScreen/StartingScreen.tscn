@@ -1,0 +1,150 @@
+[gd_scene load_steps=8 format=3 uid="uid://ckbs3e7ft8ivq"]
+
+[ext_resource type="Script" uid="uid://f1ff5t8o13tb" path="res://StartingScreen/starting_screen.gd" id="1_goi1p"]
+[ext_resource type="Script" uid="uid://j5o7wl8tagqr" path="res://StartingScreen/character_menu.gd" id="1_ttlun"]
+[ext_resource type="Theme" uid="uid://b2k8wms7hntca" path="res://StartingScreen/StartingScreenButtons.tres" id="2_sg65l"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_goi1p"]
+bg_color = Color(0.419813, 0.419813, 0.419813, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sg65l"]
+bg_color = Color(0.320408, 0.442058, 0.486737, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hcria"]
+bg_color = Color(0.223855, 0.448826, 0.568632, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 32
+corner_radius_top_right = 32
+corner_radius_bottom_right = 32
+corner_radius_bottom_left = 32
+
+[sub_resource type="Theme" id="Theme_iv5xv"]
+Button/font_sizes/font_size = 42
+Button/styles/focus = SubResource("StyleBoxFlat_goi1p")
+Button/styles/hover = SubResource("StyleBoxFlat_sg65l")
+Button/styles/normal = SubResource("StyleBoxFlat_hcria")
+Button/styles/pressed = SubResource("StyleBoxFlat_goi1p")
+
+[node name="StartingScreen" type="Node2D"]
+script = ExtResource("1_goi1p")
+
+[node name="StartingMenu" type="Node2D" parent="."]
+
+[node name="Button" type="Button" parent="StartingMenu"]
+offset_left = 320.0
+offset_top = 512.0
+offset_right = 1600.0
+offset_bottom = 578.0
+theme = SubResource("Theme_iv5xv")
+theme_override_font_sizes/font_size = 42
+text = "Start Game"
+
+[node name="OptionsButton" type="Button" parent="StartingMenu"]
+offset_left = 576.0
+offset_top = 704.0
+offset_right = 1344.0
+offset_bottom = 770.0
+theme = ExtResource("2_sg65l")
+theme_override_font_sizes/font_size = 42
+text = "Options"
+
+[node name="QuitGameButton" type="Button" parent="StartingMenu"]
+offset_left = 640.0
+offset_top = 896.0
+offset_right = 1280.0
+offset_bottom = 962.0
+theme = ExtResource("2_sg65l")
+theme_override_font_sizes/font_size = 42
+text = "Quit
+"
+
+[node name="Label" type="Label" parent="StartingMenu"]
+offset_right = 1920.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 24
+theme_override_font_sizes/font_size = 92
+text = "Welcome To Single Dad Life"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CharacterMenu" type="Node2D" parent="."]
+visible = false
+script = ExtResource("1_ttlun")
+
+[node name="LineEdit" type="LineEdit" parent="CharacterMenu"]
+offset_left = 576.0
+offset_top = 512.0
+offset_right = 1344.0
+offset_bottom = 576.0
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Player Name"
+alignment = 1
+max_length = 32
+
+[node name="Label" type="Label" parent="CharacterMenu"]
+offset_top = 136.0
+offset_right = 1912.0
+offset_bottom = 320.0
+theme_override_font_sizes/font_size = 92
+text = "Type your name below"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BeginGame" type="Button" parent="CharacterMenu"]
+offset_left = 896.0
+offset_top = 832.0
+offset_right = 1024.0
+offset_bottom = 895.0
+theme_override_font_sizes/font_size = 24
+text = "Begin"
+
+[node name="warning" type="Label" parent="CharacterMenu"]
+visible = false
+offset_left = 832.0
+offset_top = 576.0
+offset_right = 1088.0
+offset_bottom = 640.0
+text = "Player Name too Short"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsMenu" type="Node2D" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="OptionsMenu"]
+offset_right = 1920.0
+offset_bottom = 1088.0
+theme_override_font_sizes/font_size = 92
+text = "Options Coming Soon"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[connection signal="pressed" from="StartingMenu/Button" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="StartingMenu/OptionsButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="StartingMenu/QuitGameButton" to="." method="_on_quit_game_button_pressed"]
+[connection signal="pressed" from="CharacterMenu/BeginGame" to="CharacterMenu" method="_on_begin_game_pressed"]

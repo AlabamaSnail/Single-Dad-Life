@@ -11,14 +11,14 @@ config_version=5
 [application]
 
 config/name="PhoneTest"
-run/main_scene="res://node_3d.tscn"
+run/main_scene="uid://ckbs3e7ft8ivq"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-MoneyFromGov="*res://money_from_gov.gd"
-PlayerValues="*res://player_values.gd"
+MoneyFromGov="*res://Globals/money_from_gov.gd"
+PlayerValues="*res://Globals/player_values.gd"
 
 [display]
 
