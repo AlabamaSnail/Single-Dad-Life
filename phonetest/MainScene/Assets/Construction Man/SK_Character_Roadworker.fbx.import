@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://biqt3tmqdbr0d"
-path="res://.godot/imported/Character.fbx-900f242f5260e0a36aeccc1bafdfe23a.scn"
+uid="uid://cbxuht0l2hmhy"
+path="res://.godot/imported/SK_Character_Roadworker.fbx-10a758f9482a7d473b18bbdd48a4fd15.scn"
 
 [deps]
 
-source_file="res://MainScene/Assets/Character.fbx"
-dest_files=["res://.godot/imported/Character.fbx-900f242f5260e0a36aeccc1bafdfe23a.scn"]
+source_file="res://MainScene/Assets/Construction Man/SK_Character_Roadworker.fbx"
+dest_files=["res://.godot/imported/SK_Character_Roadworker.fbx-10a758f9482a7d473b18bbdd48a4fd15.scn"]
 
 [params]
 
