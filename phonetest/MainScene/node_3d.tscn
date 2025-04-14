@@ -513,6 +513,66 @@ billboard = 1
 no_depth_test = true
 text = "Press 'E' to Interact"
 
+[node name="Talking" type="Node2D" parent="NPCs/SK_Character_Roadworker"]
+visible = false
+
+[node name="Text" type="Panel" parent="NPCs/SK_Character_Roadworker/Talking"]
+offset_left = 256.0
+offset_top = 192.0
+offset_right = 1664.0
+offset_bottom = 384.0
+
+[node name="Label" type="Label" parent="NPCs/SK_Character_Roadworker/Talking/Text"]
+layout_mode = 0
+offset_right = 1408.0
+offset_bottom = 192.0
+theme_override_font_sizes/font_size = 32
+text = "What's up man?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Text2" type="Panel" parent="NPCs/SK_Character_Roadworker/Talking"]
+offset_left = 256.0
+offset_top = 512.0
+offset_right = 1664.0
+offset_bottom = 576.0
+
+[node name="Label" type="Label" parent="NPCs/SK_Character_Roadworker/Talking/Text2"]
+layout_mode = 0
+offset_right = 1408.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 24
+text = "A) Yo what up dawg, wanna do some drugs?"
+vertical_alignment = 1
+
+[node name="Text3" type="Panel" parent="NPCs/SK_Character_Roadworker/Talking"]
+offset_left = 256.0
+offset_top = 640.0
+offset_right = 1664.0
+offset_bottom = 704.0
+
+[node name="Label" type="Label" parent="NPCs/SK_Character_Roadworker/Talking/Text3"]
+layout_mode = 0
+offset_right = 1408.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 24
+text = "B) Yo dawg I need a job"
+vertical_alignment = 1
+
+[node name="Text4" type="Panel" parent="NPCs/SK_Character_Roadworker/Talking"]
+offset_left = 256.0
+offset_top = 768.0
+offset_right = 1664.0
+offset_bottom = 832.0
+
+[node name="Label" type="Label" parent="NPCs/SK_Character_Roadworker/Talking/Text4"]
+layout_mode = 0
+offset_right = 1408.0
+offset_bottom = 64.0
+theme_override_font_sizes/font_size = 24
+text = "C) Yo dawg I'm out"
+vertical_alignment = 1
+
 [connection signal="pressed" from="PhoneUI/SmallPhone/Button" to="PhoneUI" method="_on_button_pressed"]
 [connection signal="pressed" from="PhoneUI/BigPhone/TopBar/CloseButton" to="PhoneUI" method="_on_close_button_pressed"]
 [connection signal="pressed" from="PhoneUI/BigPhone/Pages/TabBar/MakingMoneyTab/MakingMoneyButton" to="PhoneUI/BigPhone/Pages" method="_on_making_money_button_pressed"]
