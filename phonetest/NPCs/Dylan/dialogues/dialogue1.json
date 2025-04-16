@@ -1,0 +1,190 @@
+{
+ "npc": "Hi.",
+ "responses": [
+   {
+	 "text": "Hey man, what's up?",
+	 "npc": "Nothing much, just thinking about my son. You new around here?",
+	 "responses": [
+	   {
+		 "text": "What's up with your son?",
+		 "npc": "Mason. He passed away a few years ago... cancer. He was three.",
+		 "responses": [
+		   {
+			 "text": "I'm so sorry, man.",
+			 "npc": "Thanks. Some days it still doesn't feel real.",
+			 "responses": [
+			   {
+				 "text": "continue",
+				 "npc": "It's funny... losing someone makes you see everything else different. I try not to waste time anymore.",
+				 "responses": [
+				   {
+					 "text": "Do you still talk to your family",
+					 "npc": "My older boy, Jake, yeah. Every other weekend. We head out to this busted old cabin. He calls it Dad's Fortress.",
+					 "responses": [
+					   {
+						 "text": "Sounds like he really looks up to you.",
+						 "npc": "Maybe. He still brings me little drawing--stick figures with tool belts. Says we're 'Fix-It Bros.' Like we're superheroes or something",
+						 "responses": [
+						   {
+							 "text": "That's adorable.",
+							 "npc": "Yeah... I keep every single one in the glovebox. Reminds me what I'm doing this for",
+							 "responses": []
+						   },
+						   {
+							 "text": "He probably just wants time with his dad.",
+							 "npc": "Time's the only thing I can't buy back.",
+							 "responses": []
+						   }
+						 ]
+					   },
+					   {
+						 "text": "That must be hard, only seeing him sometimes.",
+						 "npc": "",
+						 "responses": []
+					   }
+					 ]
+				   },
+				   {
+					 "text": "What kind of work do you do now?",
+					 "npc": "Hayes Construction. Just me and a few guys scraping by. I don;t ask where they've been--just where they're going",
+					 "responses": []
+				   },
+				   {
+					 "text": "You ever think about giving all this up?",
+					 "npc": "Every damn day. But I stop building, I fall apart. Simple as that.",
+					 "responses": [
+					   {
+						 "text": "Sounds like it's more than just work.",
+						 "npc": "It's the only thing I can fix anymore",
+						 "responses": []
+					   }
+					 ]
+
+
+				   }
+				 ]
+			   }
+			 ]
+
+
+		   },
+		   {
+			 "text": "That's rough. How do you get through it?",
+			 "npc": "You don't. Not really. But I keep busy--keeps the ghosts quiet.",
+			 "responses":[
+			   {
+				 "text": "continue",
+				 "npc": "It's funny... losing someone makes you see everything else different. I try not to waste time anymore.",
+				 "responses": [
+				   {
+					 "text": "Do you still talk to your family",
+					 "npc": "My older boy, Jake, yeah. Every other weekend. We head out to this busted old cabin. He calls it Dad's Fortress.",
+					 "responses": [
+					   {
+						 "text": "Sounds like he really looks up to you.",
+						 "npc": "Maybe. He still brings me little drawing--stick figures with tool belts. Says we're 'Fix-It Bros.' Like we're superheroes or something",
+						 "responses": [
+						   {
+							 "text": "That's adorable.",
+							 "npc": "Yeah... I keep every single one in the glovebox. Reminds me what I'm doing this for",
+							 "responses": []
+						   },
+						   {
+							 "text": "He probably just wants time with his dad.",
+							 "npc": "Time's the only thing I can't buy back.",
+							 "responses": []
+						   }
+						 ]
+					   },
+					   {
+						 "text": "That must be hard, only seeing him sometimes.",
+						 "npc": "",
+						 "responses": []
+					   }
+					 ]
+				   },
+				   {
+					 "text": "What kind of work do you do now?",
+					 "npc": "Hayes Construction. Just me and a few guys scraping by. I don;t ask where they've been--just where they're going",
+					 "responses": []
+				   },
+				   {
+					 "text": "You ever think about giving all this up?",
+					 "npc": "Every damn day. But I stop building, I fall apart. Simple as that.",
+					 "responses": [
+					   {
+						 "text": "Sounds like it's more than just work.",
+						 "npc": "It's the only thing I can fix anymore",
+						 "responses": []
+					   }
+					 ]
+
+
+				   }
+				 ]
+			   }
+			 ]
+		   }
+		 ]
+	   },
+	   {
+		 "text": "Yeah, kind of. I had to get away from some stuff too.",
+		 "npc": "Funny how life kicks us around like that. I started over too.",
+		 "responses": [
+		   {
+				 "text": "continue",
+				 "npc": "It's funny... losing someone makes you see everything else different. I try not to waste time anymore.",
+				 "responses": [
+				   {
+					 "text": "Do you still talk to your family",
+					 "npc": "My older boy, Jake, yeah. Every other weekend. We head out to this busted old cabin. He calls it Dad's Fortress.",
+					 "responses": [
+					   {
+						 "text": "Sounds like he really looks up to you.",
+						 "npc": "Maybe. He still brings me little drawing--stick figures with tool belts. Says we're 'Fix-It Bros.' Like we're superheroes or something",
+						 "responses": [
+						   {
+							 "text": "That's adorable.",
+							 "npc": "Yeah... I keep every single one in the glovebox. Reminds me what I'm doing this for",
+							 "responses": []
+						   },
+						   {
+							 "text": "He probably just wants time with his dad.",
+							 "npc": "Time's the only thing I can't buy back.",
+							 "responses": []
+						   }
+						 ]
+					   },
+					   {
+						 "text": "That must be hard, only seeing him sometimes.",
+						 "npc": "",
+						 "responses": []
+					   }
+					 ]
+				   },
+				   {
+					 "text": "What kind of work do you do now?",
+					 "npc": "Hayes Construction. Just me and a few guys scraping by. I don;t ask where they've been--just where they're going",
+					 "responses": []
+				   },
+				   {
+					 "text": "You ever think about giving all this up?",
+					 "npc": "Every damn day. But I stop building, I fall apart. Simple as that.",
+					 "responses": [
+					   {
+						 "text": "Sounds like it's more than just work.",
+						 "npc": "It's the only thing I can fix anymore",
+						 "responses": []
+					   }
+					 ]
+
+
+				   }
+				 ]
+			   }
+		 ]
+	   }
+	 ]
+   }
+ ]
+}
