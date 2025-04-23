@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="ArrayMesh" uid="uid://b4552pv0kdbhw" path="res://test/Assets/Meshes/City_SM_Prop_ShopInterior_Shelf_04.res" id="1_rbbdh"]
+
+[node name="SM_Prop_ShopInterior_Shelf_04" type="MeshInstance3D"]
+mesh = ExtResource("1_rbbdh")
+skeleton = NodePath("")
