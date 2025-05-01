@@ -24,6 +24,7 @@ func _on_close_button_pressed() -> void:
 	get_node("/root/MainScene/PhoneUI/BigPhone/Pages/BankingPage").visible = false
 	get_node("/root/MainScene/PhoneUI/BigPhone/Pages/HomePage").visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	PlayerValues.isMenuOpen = false
 	
 	
 func _change_visible() -> void:

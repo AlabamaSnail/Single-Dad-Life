@@ -4,7 +4,9 @@ extends Node
 var PlayerName = "NoPlayer"
 var MoneyInBank = 0
 var PlayerCash = 0
-
+var Health = 100
+var Hunger = 100
+var Happiness = 100
 
 var isMenuOpen = false
 
